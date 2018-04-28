@@ -4,7 +4,7 @@ A set of helper functions that one repeatedly need to construct a dataset from r
 # Daily log
 
 * [X] Train from scratch
-* [ ] resume trainint
+* [X] resume trainint
 * [ ] Find Pixel Mean
 * [ ] Visualize model every 50 epochs
 * [ ] Visualize model on sinfle scan
