@@ -1,12 +1,12 @@
 **Day**  |  **Task**                         |  **Description**  |  **Completed**
 ---------|-----------------------------------|-------------------|--------------------
-1        |  Train from scratch               |                   |  :white_check_mark:
-2        |  Resume trainint                  |                   |
-3        |  Find Pixel Mean                  |                   |
-4        |  Visualize model every 50 epochs  |                   |
-5        |  Visualize model on sinfle scan   |                   |
-6        |  to be determined                 |                   |
-7        |  to be determined                 |                   |
+1        |  Evaluate Model                   |                   |  :white_check_mark:
+2        |  Preprocessing                    |                   |  :white_check_mark:
+3        |  Train from scratch               |                   |
+4        |  Resume trainint                  |                   |
+5        |  Find Pixel Mean                  |                   |
+6        |  Visualize model every 50 epochs  |                   |
+7        |  Visualize model on sinfle scan   |                   |
 8        |  to be determined                 |                   |
 9        |  to be determined                 |                   |
 10       |  to be determined                 |                   |
