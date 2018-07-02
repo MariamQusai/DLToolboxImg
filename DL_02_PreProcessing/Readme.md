@@ -1,6 +1,6 @@
 # Preprocessing
 
-**No**  |  **Task**                         |  **File  |  **Completed**
+**No**  |  **Task**                         |  **File**  |  **Completed**
 ---------|-----------------------------------|-------------------|--------------------
 1        |  Download dataset                |                   |
 1        |  Read DICOM data                  |                   |
