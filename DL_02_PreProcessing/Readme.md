@@ -2,6 +2,7 @@
 
 **No**  |  **Task**                         |  **File  |  **Completed**
 ---------|-----------------------------------|-------------------|--------------------
+1        |  Download dataset                |                   |
 1        |  Read DICOM data                  |                   |
 2        |  Extract small 3d patches from 3-D images                  |    DL_02_PatchesExtraction3DImage.ipynb               |  :white_check_mark:
 3        |  Preprocessing                    |                   |  
