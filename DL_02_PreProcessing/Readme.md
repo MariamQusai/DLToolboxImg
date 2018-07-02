@@ -4,7 +4,7 @@
 ---------|-----------------------------------|-------------------|--------------------
 1        |  Download dataset                |       [here](https://github.com/x110/DLToolboxImg/blob/master/DL_02_PreProcessing/download_dataset.ipynb)            |:white_check_mark:
 1        |  Read DICOM data                  |                  |
-2        |  Extract small 3d patches from 3-D images                  |    D[here](https://github.com/x110/DLToolboxImg/blob/master/DL_02_PreProcessing/DL_02_PatchesExtraction3DImage.ipynb)              |  :white_check_mark:
+2        |  Extract small 3d patches from 3-D images                  |    [here](https://github.com/x110/DLToolboxImg/blob/master/DL_02_PreProcessing/DL_02_PatchesExtraction3DImage.ipynb)              |  :white_check_mark:
 3        |  Preprocessing                    |                   |  
 4        |  Train from scratch               |                   |
 5        |  Resume trainint                  |                   |
