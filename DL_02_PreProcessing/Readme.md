@@ -3,14 +3,13 @@
 **No**  |  **Task**                         |  **File  |  **Completed**
 ---------|-----------------------------------|-------------------|--------------------
 1        |  Read DICOM data                  |                   |
-1        |  Extract small 3d patches from 3-D images                  |    DL_02_PatchesExtraction3DImage.ipynb               |  :white_check_mark:
-3        |  Preprocessing                    |                   |  :white_check_mark:
-3        |  Train from scratch               |                   |
-4        |  Resume trainint                  |                   |
-5        |  Find Pixel Mean                  |                   |
-6        |  Visualize model every 50 epochs  |                   |
-7        |  Visualize model on sinfle scan   |                   |
-8        |  to be determined                 |                   |
+2        |  Extract small 3d patches from 3-D images                  |    DL_02_PatchesExtraction3DImage.ipynb               |  :white_check_mark:
+3        |  Preprocessing                    |                   |  
+4        |  Train from scratch               |                   |
+5        |  Resume trainint                  |                   |
+6        |  Find Pixel Mean                  |                   |
+7        |  Visualize model every 50 epochs  |                   |
+8        |  Visualize model on sinfle scan   |                   |
 9        |  to be determined                 |                   |
 10       |  to be determined                 |                   |
 11       |  to be determined                 |                   |
