@@ -2,6 +2,8 @@
 
 A set of helper functions that one repeatedly need to construct a dataset from raw images, visualise the performance of a neural network while it is getting trained, evaluate the performance of a model after training is completed. 
 
+![Prototype](https://github.com/x110/DLToolboxImg/blob/master/ezgif.com-optimize.gif)
+
 
 |  **Task**                                              |  **Completed**
 |-------------------------------------------------------|--------------------
