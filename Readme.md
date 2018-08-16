@@ -1,8 +1,8 @@
 # DLToolboxImg
-##  Check the most recent notebook [here](https://github.com/x110/DLToolboxImg/blob/master/DL_006_Preprocessing_Normalization.ipynb)
 
 A set of helper functions that one repeatedly need to construct a dataset from raw images, visualise the performance of a neural network while it is getting trained, evaluate the performance of a model after training is completed. 
 ![Alt Text](https://raw.githubusercontent.com/x110/DLToolboxImg/master/prototype.gif)
+##  Check the most recent notebook [here](https://github.com/x110/DLToolboxImg/blob/master/DL_006_Preprocessing_Normalization.ipynb)
 
 
 |  **Task**                                              |  **Completed**
