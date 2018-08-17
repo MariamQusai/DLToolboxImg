@@ -18,8 +18,8 @@ This is a work in pogress. The end product would be similar to the below animati
 [Distribution of original scan resolutions](https://github.com/x110/DLToolboxImg/blob/master/DL_005_Preprocessing_resample_to_new_resolution.ipynb)              |  :white_check_mark:
 [Preprocessing: Normalization](https://github.com/x110/DLToolboxImg/blob/master/DL_006_Preprocessing_Normalization.ipynb)              |  :white_check_mark:
 [Extract small 3d patches from 3-D images](https://github.com/x110/DLToolboxImg/blob/master/DL_02_PatchesExtraction3DImage.ipynb)              |  :white_check_mark:
-[Evaluate Model 2](https://github.com/x110/DLToolboxImg/blob/master/DL_02_EvaluateModel.ipynb)              |  :white_check_mark:
 [Evaluate Model 1](https://github.com/x110/DLToolboxImg/blob/master/DL_01_EvaluateModel.ipynb)              |  :white_check_mark:
+[Evaluate Model 2](https://github.com/x110/DLToolboxImg/blob/master/DL_02_EvaluateModel.ipynb)              |  :white_check_mark:
 [Train from random weights initializatoin]()              |  
 [Resume training from last check point]()              |  
 [Visualize model every 50 epochs]()              |  
