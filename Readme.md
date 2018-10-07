@@ -4,8 +4,14 @@ A set of helper functions that one repeatedly need to construct a dataset from r
 This is a work in pogress. The end product would be similar to the below animation. 
 ![Alt Text](https://raw.githubusercontent.com/x110/DLToolboxImg/master/prototype.gif)
 ##  Check the most recent notebook [here](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg.ipynb)
+|  **Task**                                              |  **Completed**
+|-------------------------------------------------------|--------------------
+[Construct dataset part 1](https://github.com/x110/DLToolboxImg/blob/master/DL_02_PreProcessing/DLToolboxImg.ipynb)            |:white_check_mark:
+[Construct dataset part 2](https://github.com/x110/DLToolboxImg/blob/master/DL_011_ConstructDataData.ipynb)                                    |:white_check_mark:
 
 
+[]
+(
 |  **Task**                                              |  **Completed**
 |-------------------------------------------------------|--------------------
 [Download dataset](https://github.com/x110/DLToolboxImg/blob/master/DL_02_PreProcessing/download_dataset.ipynb)            |:white_check_mark:
@@ -28,4 +34,6 @@ This is a work in pogress. The end product would be similar to the below animati
 [Resume training from last check point]()              |  
 [Visualize model every 50 epochs]()              |  
 [Visualize performance on a single full CT-scan]()              |  
+
+)
 
