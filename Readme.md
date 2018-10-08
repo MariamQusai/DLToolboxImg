@@ -7,6 +7,7 @@ This is a work in pogress. The end product would be similar to the below animati
 |-------------------------------------------------------|--------------------
 [Construct dataset part 1](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg.ipynb)            |:white_check_mark:
 [Construct dataset part 2](https://github.com/x110/DLToolboxImg/blob/master/DL_011_ConstructDataData.ipynb)                                    |:white_check_mark:
+[Train Model](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg_3.ipynb)                                    |:white_check_mark:
 
 ![Alt Text](https://raw.githubusercontent.com/x110/DLToolboxImg/master/prototype.gif)
 
