@@ -1589,3 +1589,83 @@ def unet0():
     return y
 
 
+def get_net_317():
+    source = mx.sym.Variable("data")
+    label = mx.sym.Variable("softmax_label")
+    #print_inferred_shape(source)
+
+    kernel_size = (3, 3, 3)
+    stride=(1, 1,1)
+    pad_size = (1, 1, 1)
+    filter_count = 32
+    net =  mx.sym.Convolution(data=source, kernel=kernel_size, stride=stride, pad=pad_size, num_filter=filter_count)
+    net = mx.sym.BatchNorm(net)
+    net = mx.sym.Activation(net, act_type="relu")
+    #print_inferred_shape(net)
+    
+    
+    net = mx.sym.Convolution(net, kernel=kernel_size, stride=stride, pad=pad_size, num_filter=filter_count)
+    net = mx.sym.BatchNorm(net)
+    net = mx.sym.Activation(net, act_type="relu")
+    #print_inferred_shape(net)
+    
+    net = mx.sym.Convolution(net, kernel=kernel_size, stride=stride, pad=pad_size, num_filter=filter_count)
+    net = mx.sym.BatchNorm(net)
+    net = mx.sym.Activation(net, act_type="relu")
+    #print_inferred_shape(net)
+    
+    net1=net
+    
+    net = mx.sym.Pooling(net, pool_type="max", kernel=(2, 2,2), stride=(2,2, 2))
+    #print_inferred_shape(net)
+    
+    net = mx.sym.Convolution(net, kernel=kernel_size, stride=stride, pad=pad_size, num_filter=filter_count)
+    net = mx.sym.BatchNorm(net)
+    net = mx.sym.Activation(net, act_type="relu")
+
+    #print_inferred_shape(net)
+
+    
+    net =  mx.sym.Convolution(net, kernel=kernel_size, stride=stride, pad=pad_size, num_filter=filter_count)
+    net = mx.sym.BatchNorm(net)
+    net = mx.sym.Activation(net, act_type="relu")
+    #print_inferred_shape(net)
+    
+    net = mx.sym.Convolution(net, kernel=kernel_size, stride=stride, pad=pad_size, num_filter=filter_count)
+    net = mx.sym.BatchNorm(net)
+    net = mx.sym.Activation(net, act_type="relu")
+    #print_inferred_shape(net)
+    
+    net = mx.sym.Dropout(net,p=0.4)
+    
+    net = mx.sym.Deconvolution(net, kernel=(2, 2,2), pad=(0, 0,0), stride=(2,2, 2), num_filter=filter_count)
+    net = mx.sym.Activation(net, act_type="relu")
+
+
+    
+    net = mx.sym.Concat(*[net1, net])
+    #print_inferred_shape(net)
+
+    net = mx.sym.Convolution(net, kernel=kernel_size, stride=stride, pad=pad_size, num_filter=filter_count)
+    net = mx.sym.BatchNorm(net)
+    net = mx.sym.Activation(net, act_type="relu")
+    #print_inferred_shape(net)
+    
+    net = mx.sym.Convolution(net, kernel=kernel_size, stride=stride, pad=pad_size, num_filter=filter_count)
+    net = mx.sym.BatchNorm(net)
+    net = mx.sym.Activation(net, act_type="relu")
+    #print_inferred_shape(net)
+        
+    net = mx.sym.Convolution(net, kernel=kernel_size, stride=stride, pad=pad_size, num_filter=1)
+    net = mx.sym.BatchNorm(net,fix_gamma=False)
+    net = mx.sym.Activation(net, act_type="sigmoid")
+    #print_inferred_shape(net)
+    
+    y = mx.symbol.Flatten(net)
+    
+    loss= mx.sym.MakeLoss(dice_coef_loss(label, y))
+    pred_loss = mx.sym.Group([mx.sym.BlockGrad(y), loss])
+
+    return pred_loss
+
+
