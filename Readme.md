@@ -15,7 +15,6 @@ This is a work in pogress. The end product would be similar to the below animati
 
 ![Alt Text](https://raw.githubusercontent.com/x110/DLToolboxImg/master/prototype.gif)
 
-## Check the most recent notebook [here](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg_3.ipynb)
 
 <!--
 ##  Check the most recent notebook [here](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg_3.ipynb)                                    |:white_check_mark:
