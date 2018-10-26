@@ -24,7 +24,7 @@ def print_inferred_shape(net):
     ar, ou, au = net.infer_shape(data=(BATCH_SIZE, 1, INPUT_SIZE_z,INPUT_SIZE_y, INPUT_SIZE_x))
     print(net.name,ou)
 
-class FileIter(DataIter):
+class FileIter0(DataIter):
     def __init__(self, path,
                  data_name="data",
                  label_name="softmax_label",
@@ -36,7 +36,7 @@ class FileIter(DataIter):
         self.epoch = 0
 
         
-        super(FileIter, self).__init__()
+        super(FileIter0, self).__init__()
         self.batch_size = batch_size
         self.do_augment=do_augment
 
@@ -1668,4 +1668,252 @@ def get_net_317():
 
     return pred_loss
 
+class FileIter(DataIter):
+    def __init__(self, path,path_idx,
+                 data_name="data",
+                 label_name="softmax_label",
+                 batch_size=1,
+                 do_augment=False,
+                 mean_image=.2815,
+                 std_image = .2807,
+                 do_shuffle = True):
+
+        
+        random.seed(313)
+        self.ind2=None
+        self.do_shuffle = do_shuffle
+        self.epoch = 0
+        self.mean_image = mean_image
+        self.std_image = std_image
+        
+        super(FileIter, self).__init__()
+        self.batch_size = batch_size
+        self.do_augment=do_augment
+        
+
+        self.data_name = data_name
+        self.label_name = label_name
+
+        self.record = mx.recordio.MXIndexedRecordIO(path_idx, path, 'r')#mx.recordio.MXRecordIO(path, 'r')
+
+        
+        def readrecord(record):
+            record.reset()
+            num_data=0
+            while True:
+                item = record.read()
+                num_data+=1
+                if not item:
+                    break
+            return num_data-1
+        
+        
+        self.num_data = readrecord(self.record)#len(open(self.flist_name, 'r').readlines())
+        
+        
+        
+        self.idx = self.shuffle_idx()
+        self.cursor = -1
+        self.cursor2 = -1
+        self.ind = self.idx[0]
+        self.record.reset()
+
+        self.data, self.label = self._read()
+        self.reset()
+            
+    def shuffle_idx(self):
+        num_data = self.num_data//self.batch_size*self.batch_size
+        idx = [i for i in range(num_data)]
+        if self.do_shuffle:
+            random.shuffle(idx)
+        idx = np.array(idx)
+        idx = idx.reshape(-1,self.batch_size)
+        return idx
+    
+    def _read(self):
+        """get two list, each list contains two elements: name and nd.array value"""
+                
+        data = {}
+        label = {}
+
+        dd = []
+        ll = []
+        
+        if self.ind2 is None:
+            ind = self.ind
+        else:
+            ind = self.ind2
+            self.ind2=None
+            
+        for i in range(0, self.batch_size):
+            
+            item = self.record.read_idx(ind[i])            
+            header, l = mx.recordio.unpack_img(item)
+            
+            d=header.label
+
+            d=d.reshape((32,32,32))- self.mean_image
+            d = d/self.std_image
+            d = np.expand_dims(d, axis=0) 
+            d = np.expand_dims(d, axis=0)
+            
+
+            l=l.reshape((32*32*32))
+            l = np.expand_dims(l, axis=0)
+            l=l.astype(float)
+
+            dd.append(d)
+            ll.append(l)
+
+        d = np.vstack(dd)
+        l = np.vstack(ll)
+        data[self.data_name] = d
+        label[self.label_name] = l
+        res = list(data.items()), list(label.items())
+        return res
+
+    @property
+    def provide_data(self):
+        """The name and shape of data provided by this iterator"""
+        res = [(k, tuple(list(v.shape[0:]))) for k, v in self.data]
+        # print "data : " + str(res)
+        return res
+
+    @property
+    def provide_label(self):
+        """The name and shape of label provided by this iterator"""
+        res = [(k, tuple(list(v.shape[0:]))) for k, v in self.label]
+        return res
+    
+
+    def reset(self):
+        self.cursor = -1
+        self.cursor2 = -1
+        self.record.reset()
+        self.epoch += 1
+        self.idx = self.shuffle_idx()
+        
+
+
+    def getpad(self):
+        return 0
+
+    def iter_next(self):
+        self.cursor += self.batch_size
+        self.cursor2 += 1
+        num_data = self.num_data//self.batch_size*self.batch_size
+            
+
+        if self.cursor < self.num_data:
+            self.ind = self.idx[self.cursor2]
+            return True
+        else:
+            return False
+
+    def eof(self):
+        res = self.cursor >= self.num_data
+        return res
+
+    def next(self):
+        """return one dict which contains "data" and "label" """
+        if self.iter_next():
+            self.data, self.label = self._read()
+ 
+            res = DataBatch(data=[mx.nd.array(self.data[0][1])], label=[mx.nd.array(self.label[0][1])], pad=self.getpad(), index=None)
+
+            return res
+        else:
+            raise StopIteration
+
+class LRScheduler(object):
+    """Base class of a learning rate scheduler.
+
+    A scheduler returns a new learning rate based on the number of updates that have
+    been performed.
+
+    Parameters
+    ----------
+    base_lr : float, optional
+        The initial learning rate.
+    """
+    def __init__(self, base_lr=0.01):
+        self.base_lr = base_lr
+
+    def __call__(self, num_update):
+        """Return a new learning rate.
+
+        The ``num_update`` is the upper bound of the number of updates applied to
+        every weight.
+
+        Assume the optimizer has updated *i*-th weight by *k_i* times, namely
+        ``optimizer.update(i, weight_i)`` is called by *k_i* times. Then::
+
+            num_update = max([k_i for all i])
+
+        Parameters
+        ----------
+        num_update: int
+            the maximal number of updates applied to a weight.
+        """
+        raise NotImplementedError("must override this")
+class lr_find(LRScheduler):
+    """Reduce the learning rate by a factor for every *n* steps.
+
+    It returns a new learning rate by::
+
+        base_lr * pow(factor, floor(num_update/step))
+
+    Parameters
+    ----------
+    step : int
+        Changes the learning rate for every n updates.
+    factor : float, optional
+        The factor to change the learning rate.
+    stop_factor_lr : float, optional
+        Stop updating the learning rate if it is less than this value.
+        
+    """
+
+    def __init__(self, layer_opt_lr, nb, end_lr=10, linear=True):
+        super(lr_find,self).__init__()
+
+        self.linear = linear
+        ratio = end_lr/layer_opt_lr
+        self.lr_mult = (ratio/nb) if linear else ratio**(1/nb)
+        self.iteration = 1
+        self.losses=[]
+        self.lrs=[]
+        self.init_lrs=1e-5
+        self.new_lr = self.init_lrs
+
+    def on_train_begin(self):
+        self.best=1e9
+        
+        
+    def __call__(self,b):
+        return self.new_lr
+
+
+
+    def on_batch_end(self, loss):
+        self.losses.append(loss)
+        mult = self.lr_mult*self.iteration if self.linear else self.lr_mult**self.iteration
+        self.iteration +=1
+        self.new_lr = self.init_lrs * mult
+        self.lrs.append(self.new_lr)
+        return self.init_lrs * mult
+        if math.isnan(loss) or loss>self.best*4:
+            return True
+        if (loss<self.best and self.iteration>10): self.best=loss
+
+    def plot(self, n_skip=10):
+        plt.ylabel("loss")
+        plt.xlabel("learning rate (log scale)")
+        plt.plot(self.lrs[n_skip:-5], self.losses[n_skip:-5])
+        plt.xscale('log')
+        
+    def reset(self):
+        self.iteration = 1
+        self.losses=[]
+        self.lrs=[]
 
