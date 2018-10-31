@@ -9,7 +9,7 @@ This is a work in pogress. The end product would be similar to the below animati
 
 |  **Task**                                              |  **Completed**
 |-------------------------------------------------------|--------------------
-[Construct dataset part 1](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg.ipynb)            |:white_check_mark:
+[Develop Toolbox](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg.ipynb)            |:white_check_mark:
 [Construct dataset](https://github.com/x110/DLToolboxImg/blob/master/NodueSegmentation.ipynb)                                    |:white_check_mark:
 [Train Model](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg_3.ipynb)                                    |:white_check_mark:
 [Evaluate Trained Model](https://github.com/x110/DLToolboxImg/blob/master/Evaluate_trained_model.ipynb)                                    |:white_check_mark:
