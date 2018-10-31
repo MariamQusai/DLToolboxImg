@@ -16,7 +16,7 @@ This is a work in pogress. The end product would be similar to the below animati
 [Evaluate Model while Training]()                                    |
 [Build interface to Configure Experiments]()                                    |
 
-![Alt Text](https://raw.githubusercontent.com/x110/DLToolboxImg/master/prototype.gif)
+![Alt Text](https://raw.githubusercontent.com/x110/DLToolboxImg/master/Chest_Cavity.gif)
 
 
 <!--
