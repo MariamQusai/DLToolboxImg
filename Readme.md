@@ -10,9 +10,10 @@ This is a work in pogress. The end product would be similar to the below animati
 |  **Task**                                              |  **Completed**
 |-------------------------------------------------------|--------------------
 [Develop Toolbox](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg.ipynb)            |:white_check_mark:
-[Construct dataset](https://github.com/x110/DLToolboxImg/blob/master/NodueSegmentation.ipynb)                                    |:white_check_mark:
+[Construct dataset](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentation.ipynb)                                    |:white_check_mark:
 [Train Model](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel.ipynb)                                    |:white_check_mark:
 [Evaluate Trained Model](https://github.com/x110/DLToolboxImg/blob/master/Evaluate_trained_model.ipynb)                                    |:white_check_mark:
+[Prototype of System](https://github.com/x110/DLToolboxImg/blob/master/Prototype.ipynb)                                    |:white_check_mark:
 [Evaluate Model while Training]()                                    |
 [Build interface to Configure Experiments]()                                    |
 
