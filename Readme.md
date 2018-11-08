@@ -17,13 +17,15 @@ This is a work in pogress. The end product would be similar to the below animati
 [Evaluate Model while Training]()                                    |
 [Build interface to Configure Experiments]()                                    |
 
-![Alt Text](https://raw.githubusercontent.com/x110/DLToolboxImg/master/Chest_Cavity.gif)
-
 # Results
 
 |  **Model architecture**  |  **epochs**  |  **Data augmentation** |  **Dice score**
 |-------------------------------------------------------|--------------------
 [Modified UNet with Dropout=0.6](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel.ipynb)| 40  |  None |  -0.64328116
+
+
+![Alt Text](https://raw.githubusercontent.com/x110/DLToolboxImg/master/Chest_Cavity.gif)
+
 
 
 
