@@ -19,11 +19,17 @@ This is a work in pogress. The end product would be similar to the below animati
 
 ![Alt Text](https://raw.githubusercontent.com/x110/DLToolboxImg/master/Chest_Cavity.gif)
 
+# Results
+|  **Model architecture**  |  **epochs**  |  **Data augmentation** |  **Dice score**
+|-------------------------------------------------------|--------------------
+[Modified UNet with Dropout=0.6](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel.ipynb)|:white_check_mark:|  40  |  None |  -0.64328116
+
+
 
 <!--
 ##  Check the most recent notebook [here](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg_3.ipynb)                                    |:white_check_mark:
 )
-|  **Model architecture**  |  **epochs**  |  **Data augmentation** |  **Dice score**
+|  **Task**                                              |  **Completed**
 |-------------------------------------------------------|--------------------
 [Download dataset](https://github.com/x110/DLToolboxImg/blob/master/DL_02_PreProcessing/download_dataset.ipynb)            |:white_check_mark:
 [Read DICOM data](https://github.com/x110/DLToolboxImg/blob/master/DL_002_load_data.ipynb)                                    |:white_check_mark:
@@ -47,8 +53,4 @@ This is a work in pogress. The end product would be similar to the below animati
 [Visualize performance on a single full CT-scan]()              |  
 
 --> 
-# Results
-|  **Model architecture**  |  **epochs**  |  **Data augmentation** |  **Dice score**
-|-------------------------------------------------------|--------------------
-[Modified UNet with Dropout=0.6](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel.ipynb)|:white_check_mark:|  40  |  None |  -0.64328116
 
