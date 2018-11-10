@@ -23,7 +23,7 @@ This is a work in pogress. The end product would be similar to the below animati
 |  **Model architecture**  |  **epochs**  |  **Data augmentation** |  **Dice score**
 |--------------------------|--------------|------------------------|-------------------|
 [Modified UNet with Dropout=0.6](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel.ipynb)| 40  |  None |  -0.64328116
-[Modified UNet with Dropout=0.4]()|  |  Horizantal + vertical flips |  
+[Modified UNet with Dropout=0.6](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel2.ipynb)|  |  Horizantal + vertical flips | -0.6887 
 
 <!--
 ##  Check the most recent notebook [here](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg_3.ipynb)                                    |:white_check_mark:

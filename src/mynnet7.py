@@ -242,7 +242,7 @@ def crop_centerz(img,cropz=32):
     startz= z//2-(cropz//2)    
     return img[startz:startz+cropz]
 
-def random_flip_img(img, horizontal_chance=0, vertical_chance=0):
+def random_flip_imgold(img, horizontal_chance=0, vertical_chance=0):
     import cv2
     flip_horizontal = False
     if random.random() < horizontal_chance:
@@ -270,6 +270,28 @@ def random_flip_img(img, horizontal_chance=0, vertical_chance=0):
     #print flip_val
     
     return res
+
+def random_flip_img(X,Y, horizontal_chance=0.5, vertical_chance=0.5):
+    import cv2
+    flip_horizontal = False
+    if random.random() < horizontal_chance:
+        flip_horizontal = True
+
+    flip_vertical = False
+    if random.random() < vertical_chance:
+        flip_vertical = True
+
+    if not flip_horizontal and not flip_vertical:
+        return (X,Y)
+
+    flip_val = 1
+    if flip_vertical:
+        flip_val = -1 if flip_horizontal else 0
+
+    Xaug = np.array([cv2.flip(x, flip_val) for x in X])
+    Yaug = np.array([cv2.flip(x, flip_val) for x in Y])
+
+    return (Xaug,Yaug)
 
 
 def augment(imgs,labels):
@@ -1088,7 +1110,7 @@ def crop_centerz(img,cropz=32):
     startz= z//2-(cropz//2)    
     return img[startz:startz+cropz]
 
-def random_flip_img(img, horizontal_chance=0, vertical_chance=0):
+def random_flip_imgold(img, horizontal_chance=0, vertical_chance=0):
     import cv2
     flip_horizontal = False
     if random.random() < horizontal_chance:
@@ -1674,8 +1696,9 @@ class FileIter(DataIter):
                  label_name="softmax_label",
                  batch_size=1,
                  do_augment=False,
-                 mean_image=.2815,
-                 std_image = .2807,
+                 random_flip=False,
+                 mean_image=.28,
+                 std_image = .28,
                  do_shuffle = True):
 
         
@@ -1689,6 +1712,7 @@ class FileIter(DataIter):
         super(FileIter, self).__init__()
         self.batch_size = batch_size
         self.do_augment=do_augment
+        self.random_flip = random_flip
         
 
         self.data_name = data_name
@@ -1754,13 +1778,18 @@ class FileIter(DataIter):
 
             d=d.reshape((32,32,32))- self.mean_image
             d = d/self.std_image
+
+            if self.random_flip:
+            	l=l.reshape((32,32,32))
+            	d,l = random_flip_img(d,l, horizontal_chance=0.5, vertical_chance=0.5)
+
             d = np.expand_dims(d, axis=0) 
             d = np.expand_dims(d, axis=0)
-            
-
             l=l.reshape((32*32*32))
-            l = np.expand_dims(l, axis=0)
             l=l.astype(float)
+            l = np.expand_dims(l, axis=0)
+
+
 
             dd.append(d)
             ll.append(l)
