@@ -1912,7 +1912,7 @@ class lr_find(LRScheduler):
         self.iteration = 1
         self.losses=[]
         self.lrs=[]
-        self.init_lrs=1e-5
+        self.init_lrs=layer_opt_lr
         self.new_lr = self.init_lrs
 
     def on_train_begin(self):
