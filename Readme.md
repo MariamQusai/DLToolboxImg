@@ -26,6 +26,7 @@ This is a work in pogress. The end product would be similar to the below animati
 [Modified UNet with Dropout=0.6](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel2.ipynb)| 80 |  Horizantal + vertical flips |  dice loss| -0.68878084
 [Modified UNet with Dropout=0.4](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel3.ipynb)| 60 |  Horizantal + vertical flips |  dice loss| -0.602
 [Modified UNet with Dropout=0.6]()|  |  Horizantal + vertical flips |  weighted cross-entropy w=[.9,.1]| 
+[Modified UNet with Dropout=0.6, train only on positive data]()|  |  Horizantal + vertical flips |  dice loss| -0.602
 <!--
 ##  Check the most recent notebook [here](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg_3.ipynb)                                    |:white_check_mark:
 )
