@@ -20,12 +20,12 @@ This is a work in pogress. The end product would be similar to the below animati
 ![Alt Text](https://raw.githubusercontent.com/x110/DLToolboxImg/master/Chest_Cavity.gif)
 
 
-|  **Model architecture**  |  **epochs**  |  **Data augmentation** |  **Dice score**
-|--------------------------|--------------|------------------------|-------------------|
-[Modified UNet with Dropout=0.6](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel.ipynb)| 40  |  None |  -0.64328116
-[Modified UNet with Dropout=0.6](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel2.ipynb)| 80 |  Horizantal + vertical flips | -0.68878084
-[Modified UNet with Dropout=0.4](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel3.ipynb)| 60 |  Horizantal + vertical flips | -0.602
-
+|  **Model architecture**  |  **epochs**  |  **Data augmentation** |  **optimization function** |**Dice score**
+|--------------------------|--------------|------------------------|------------------------|-------------------|
+[Modified UNet with Dropout=0.6](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel.ipynb)| 40  |  None |  dice loss |-0.64328116
+[Modified UNet with Dropout=0.6](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel2.ipynb)| 80 |  Horizantal + vertical flips |  dice loss| -0.68878084
+[Modified UNet with Dropout=0.4](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel3.ipynb)| 60 |  Horizantal + vertical flips |  dice loss| -0.602
+[Modified UNet with Dropout=0.6]()|  |  Horizantal + vertical flips |  weighted cross-entropy| 
 <!--
 ##  Check the most recent notebook [here](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg_3.ipynb)                                    |:white_check_mark:
 )
