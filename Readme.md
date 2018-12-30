@@ -28,7 +28,7 @@ This is a work in pogress. The end product would be similar to the below animati
 [Modified UNet with Dropout=0.6](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel5.ipynb)|  |  Horizantal + vertical flips |  weighted cross-entropy w=[.9,.1]| 
 [Modified UNet with Dropout=0.6, train only on positive data](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel8.ipynb)|  |  Horizantal + vertical flips |  dice loss| [-0.62](https://github.com/x110/DLToolboxImg/blob/master/models/model8)
 [Modified UNet with Dropout=0.6, train only on positive data, cosine annealing lr schedule](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel10.ipynb)|  |  Horizantal + vertical flips |  dice loss| 
-[Modified UNet with Dropout=0.6, train only on positive data](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel9.ipynb)|  |  Horizantal + vertical flips + elastic transform |  dice loss|
+[Modified UNet with Dropout=0.6, train only on positive data](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel9.ipynb)|  |  Horizantal + vertical flips + elastic transform |  dice loss|-.56
 <!--
 ##  Check the most recent notebook [here](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg_3.ipynb)                                    |:white_check_mark:
 )
