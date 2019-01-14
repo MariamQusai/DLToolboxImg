@@ -31,6 +31,7 @@ This is a work in pogress. The end product would be similar to the below animati
 [Modified UNet with Dropout=0.6, train only on positive data](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel9.ipynb)|  |  Horizantal + vertical flips + elastic transform |  dice loss|-.56
 [Modified UNet with Dropout=0.6, train only on positive data, cosine annealing lr schedule](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel11.ipynb)|  |  Horizantal + vertical flips + random rotations [-10,10]|  dice loss| -.63
 [Modified UNet with Dropout=0.6, train only on positive data, cosine annealing lr schedule](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel12.ipynb)|  |  Horizantal + vertical flips + random rotations [-20,20]|  dice loss| -.63
+[Modified UNet with Dropout=0.6, train only on positive data, cosine annealing lr schedule](https://github.com/x110/DLToolboxImg/blob/master/NoduleSegmentationModel13.ipynb)|  |  Horizantal + vertical flips + random rotations [-20,20] + elastic distortion($\alpha$ =34, $\sigma$=5 )|  dice loss| 
 <!--
 ##  Check the most recent notebook [here](https://github.com/x110/DLToolboxImg/blob/master/DLToolboxImg_3.ipynb)                                    |:white_check_mark:
 )
