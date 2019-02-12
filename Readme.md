@@ -17,7 +17,7 @@ This is a work in pogress. The end product would be similar to the below animati
 [Evaluate Model while Training](https://github.com/x110/DLToolboxImg/blob/master/monitor_performance_while_training.ipynb)                                    |:white_check_mark:
 [Build interface to Configure Experiments]()                                    |
 
-![Alt Text](https://raw.githubusercontent.com/x110/DLToolboxImg/master/Chest_Cavity.gif)
+![Alt Text](https://raw.githubusercontent.com/x110/DLToolboxImg/master/Chest_Cavity90.gif)
 
 
 |  **Model architecture**  |  **epochs**  |  **Data augmentation** |  **optimization function** |**Dice score**
