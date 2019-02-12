@@ -3,7 +3,7 @@
 
 
 A set of helper functions that one repeatedly need to construct a dataset from raw images, visualise the performance of a neural network while it is getting trained, evaluate the performance of a model after training is completed. 
-This is a work in pogress. The end product would be similar to the below animation. 
+This is a work in pogress. The Model performance on an unseen scan is shown in the below animation. 
 
 
 
